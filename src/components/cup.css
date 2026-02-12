@@ -1,89 +1,40 @@
-
 span {
     background-color: rgb(230,230,230);
     display: inline-block;
     padding: 20px;
     width: 20px;
     height: 20px;
-    /* margin: 10px; */
     text-align: center;
     cursor: pointer;
 }
 .cup {
-    position:absolute;
-    /* transition: 1s 2s ease; */
-
+    position: absolute;
 }
 img {
-    transition:all 1s 2s ease;
+    transition: all 1s 2s ease;
 }
 
 #cupimage-1 {
     position: relative;
     width: 100px;
-    height: 150px; 
-
+    height: 150px;
     background-color: green;
-    /* padding-right: 50px; */
     z-index: 100;
-    /* margin-left: 200px; */
-    /* padding-left: 100px; */
-
-    
-    /* animation: example1 2s 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s; */
-
-
 }
 #cupimage-2 {
     position: relative;
     width: 100px;
-    height: 150px; 
-    /* left: 800px;
-    top: 300px;  */
+    height: 150px;
     z-index: 100;
-
-    /* animation: example2 2s 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s; */
-} 
+}
 #cupimage-3 {
     position: relative;
     width: 100px;
-    height: 150px; 
-    /* left: 900px;
-    top: 300px; */
+    height: 150px;
     z-index: 100;
-    
     background-color: magenta;
-    /* animation: example3 2s 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s; */
 }
 
 .--open {
-    transform: translate(0 , -200px);
-    /* transition:all 1s 2s ease; */
+    transform: translate(0, -200px);
 }
-
-
-
-/* @keyframes example1 {
-    0%   { top:300px; }
-
-    100% { top:370px; }
-}
-@keyframes example2 {
-    0%   { top:300px; }
-
-    100% { top:370px; }
-}
-@keyframes example3 {
-    0%   { top:300px; }
-
-    100% { top:370px; }
-} */

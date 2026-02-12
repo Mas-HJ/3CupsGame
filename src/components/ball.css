@@ -1,22 +1,8 @@
-
 .ballimage {
     width: 50px;
-    height: 50px; 
+    height: 50px;
     position: absolute;
-    top:400px;
-    left:500px;
-    /* z-index: -1 ; */
+    top: 400px;
+    left: 500px;
     transition: 1s 2s ease;
-
-    /* animation: myfirst 2s 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards; */
-
 }
-
-/* 
-@keyframes myfirst {
-    0%   { left:0px; top:0px;}
-    /* 25%  { left:200px; top:0px;} */
-    /* 100% { left:170px; top:-30px;}
-}   */
