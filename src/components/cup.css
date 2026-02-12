@@ -1,40 +1,52 @@
-span {
-    background-color: rgb(230,230,230);
-    display: inline-block;
-    padding: 20px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    cursor: pointer;
-}
 .cup {
-    position: absolute;
-}
-img {
-    transition: all 1s 2s ease;
-}
-
-#cupimage-1 {
-    position: relative;
-    width: 100px;
-    height: 150px;
-    background-color: green;
-    z-index: 100;
-}
-#cupimage-2 {
-    position: relative;
-    width: 100px;
-    height: 150px;
-    z-index: 100;
-}
-#cupimage-3 {
-    position: relative;
-    width: 100px;
-    height: 150px;
-    z-index: 100;
-    background-color: magenta;
+  position: absolute;
+  transform: translateX(-50px);
+  width: 100px;
+  height: 150px;
+  z-index: 100;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
 }
 
-.--open {
-    transform: translate(0, -200px);
+.cup-image {
+  width: 100px;
+  height: 150px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.cup--clickable {
+  cursor: pointer;
+  animation: cupBounce 1.2s ease-in-out infinite;
+}
+
+.cup--clickable::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background: radial-gradient(ellipse, rgba(252, 92, 125, 0.5), transparent);
+  border-radius: 50%;
+  animation: glowPulse 1.2s ease-in-out infinite;
+}
+
+.cup--clickable:hover {
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4))
+         drop-shadow(0 0 20px rgba(252, 92, 125, 0.5));
+}
+
+.cup--clickable:hover .cup-image {
+  filter: brightness(1.2);
+}
+
+@keyframes cupBounce {
+  0%, 100% { transform: translateX(-50px) translateY(0); }
+  50% { transform: translateX(-50px) translateY(-6px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }

@@ -1,14 +1,211 @@
-html {
+html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .App {
-  background-color: lightblue;
   height: 100vh;
-  /* position: relative; */
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f2e 0%, #1a1a3e 40%, #2d1b4e 100%);
 }
 
+/* ── Header ────────────────────────────────── */
 
+.header {
+  text-align: center;
+  padding: 24px 16px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
 
+.header h1 {
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #f0c27f, #fc5c7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Difficulty pills ──────────────────────── */
+
+.difficulty-selector {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.difficulty-selector button {
+  padding: 6px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.difficulty-selector button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.difficulty-selector button.active {
+  background: linear-gradient(135deg, #fc5c7d, #f0c27f);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 16px rgba(252, 92, 125, 0.3);
+}
+
+/* ── Score ──────────────────────────────────── */
+
+.score {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.score span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.score .wins {
+  color: #6ee7a0;
+}
+
+.score .losses {
+  color: #f87171;
+}
+
+/* ── Board ─────────────────────────────────── */
+
+.board {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 140px);
+}
+
+/* ── Table surface ─────────────────────────── */
+
+.table-surface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(79, 55, 30, 0.0) 0%, rgba(79, 55, 30, 0.25) 30%, rgba(60, 40, 20, 0.4) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ── Messages ──────────────────────────────── */
+
+.message {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+.message--win {
+  color: #6ee7a0;
+  text-shadow: 0 0 30px rgba(110, 231, 160, 0.3);
+}
+
+.message--lose {
+  color: #f87171;
+  text-shadow: 0 0 30px rgba(248, 113, 113, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Start button ──────────────────────────── */
+
+.start-button {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 18px 56px;
+  background: linear-gradient(135deg, #fc5c7d, #f0c27f);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: 0 4px 30px rgba(252, 92, 125, 0.35);
+  transition: all 0.25s ease;
+}
+
+.start-button:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 40px rgba(252, 92, 125, 0.5);
+}
+
+.start-button:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+/* ── Play again button ─────────────────────── */
+
+.play-again {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #6ee7a0, #3db882);
+  color: #0f2818;
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(110, 231, 160, 0.3);
+  transition: all 0.25s ease;
+  z-index: 200;
+  animation: fadeIn 0.4s ease;
+}
+
+.play-again:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 32px rgba(110, 231, 160, 0.45);
+}
+
+.play-again:active {
+  transform: translateX(-50%) scale(0.97);
+}

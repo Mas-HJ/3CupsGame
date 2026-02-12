@@ -1,8 +1,17 @@
-.ballimage {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 400px;
-    left: 500px;
-    transition: 1s 2s ease;
+.ball {
+  position: absolute;
+  transform: translateX(-24px);
+  z-index: 50;
+}
+
+.ball-sphere {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff6b6b, #e63946 40%, #9d0208 100%);
+  box-shadow:
+    inset -6px -6px 14px rgba(0, 0, 0, 0.35),
+    inset 4px 4px 10px rgba(255, 180, 180, 0.25),
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(230, 57, 70, 0.3);
 }
